@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="color1">
+    <ion-title>
+      Users
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor = "let user of apiservice.users">
+
+    <!-- <ion-card-header>
+      Card Header
+    </ion-card-header> -->
+  
+    <ion-card-content [routerLink]="['/profile', user._id]" style="cursor:pointer">
+      {{user.namef}}
+      {{user._id}}
+    </ion-card-content>
+  
+  </ion-card>
+</ion-content>

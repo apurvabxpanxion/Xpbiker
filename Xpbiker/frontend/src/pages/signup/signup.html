@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="signupPage">
+  <mbsc-form [options]="formSettings">
+    <form novalidate #templForm="ngForm">
+        <div class="mbsc-form-group">
+            <div class="mbsc-form-group-title">Enter your details..!!</div>
+            <mbsc-input name="namef" [(ngModel)]="registerData.namef" #name1="ngModel" [error]="name1.invalid && templSubmitted" [errorMessage]="getErrorMessage('namef', 'templ')" placeholder="Name" minlength="2" required icon="user4"></mbsc-input>
+            <mbsc-input name="username" [(ngModel)]="registerData.username" #user="ngModel" [error]="user.invalid && templSubmitted" [errorMessage]="getErrorMessage('username', 'templ')" placeholder="Username" minlength="2" required icon="user4"></mbsc-input>
+            <mbsc-input name="email" [(ngModel)]="registerData.email" #mail="ngModel" type="email" placeholder="Email" required email icon="ion-ios7-email" [error]="mail.invalid && templSubmitted" [errorMessage]="getErrorMessage('email', 'templ')"></mbsc-input>
+            <mbsc-input name="password" [(ngModel)]="registerData.password" #pass="ngModel" type="password" placeholder="Password" minlength="6" required icon="lock2" password-toggle="true" [error]="pass.invalid && templSubmitted" [errorMessage]="getErrorMessage('password', 'templ')"></mbsc-input>
+            <mbsc-dropdown name="gender" [(ngModel)]="registerData.gender" #gen="ngModel" required icon="user4" [error]="gen.invalid && templSubmitted" [errorMessage]="getErrorMessage('gender', 'templ')">
+                <option value="">Please select</option>
+                <option value="femail">Female</option>
+                <option value="male">Male</option>
+            </mbsc-dropdown>
+            <mbsc-textarea name="tel" [(ngModel)]="registerData.tel" #b="ngModel" required minlength="10" [error]="b.invalid && templSubmitted" [errorMessage]="getErrorMessage('tel', 'templ')" placeholder="Enter you Number" icon="line-note"></mbsc-textarea>
+        </div>
+        <div class="mbsc-form-group mbsc-btn-group-block">
+            <button ion-button icon="checkmark" (click)="login()" [disabled]="templForm.invalid && templSubmitted">Sign Up</button>
+        </div>
+    </form>
+</mbsc-form>
+    
+</ion-content>

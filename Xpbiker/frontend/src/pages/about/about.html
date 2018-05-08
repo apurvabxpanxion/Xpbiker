@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="color1">
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor = "let message of apiservice.messages">
+
+    <!-- <ion-card-header>
+      Card Header
+    </ion-card-header> -->
+  
+    <ion-card-content>
+      {{message.message}}
+    
+    </ion-card-content>
+  
+  </ion-card>
+</ion-content>

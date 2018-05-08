@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar color="color1">
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons>
+     <button ion-button icon-only menuToggle>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+   </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Hello <i>{{this.name}}</i>, welcome to XpBikers Timeline</h2>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/1-twitter.jpeg">
+      </ion-avatar>
+      <h2>Apurva Burde</h2>
+      <p>November 2, 2017</p>
+       <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-item>
+  
+    <img src="assets/imgs/1-twitter.jpeg">
+  
+    <ion-card-content>
+      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-item (tap)="tapEvent($event)">
+            <ion-icon name="thumbs-up" ></ion-icon> {{tap}} Likes
+          </ion-item>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small (click)="openTodoAlert()">
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+       <ion-list>
+        <ion-item-sliding *ngFor="let todo of todos">
+          <ion-item>{{todo}}</ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="danger">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+       </ion-item-sliding>
+       </ion-list>
+    </ion-row>
+  
+  </ion-card>
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/1-twitter.jpeg">
+      </ion-avatar>
+      <h2>Appy</h2>
+      <p>March 12, 2018</p>
+    </ion-item>
+  
+    <img src="assets/imgs/biker-407123_960_720.jpg">
+  
+    <ion-card-content>
+      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+         
+            <ion-item (tap)="tapEvent($event)">
+              <ion-icon name="thumbs-up" ></ion-icon> {{tap}} Likes
+            </ion-item>
+          
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>13 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          1h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+  <ion-card>
+
+      <img src="assets/imgs/lonavala.jpg">
+    
+      <ion-item>
+        <ion-icon name="football" item-start large></ion-icon>
+        <h2>Tiger Point, Lonavala</h2>
+        <p>11 N. Way St, Madison, WI 53703</p>
+      </ion-item>
+    
+      <ion-item>
+        <ion-icon name="wine" item-left large ></ion-icon>
+        <h2>Ambby Valley, Lonavala</h2>
+        <p>14 S. Hop Avenue, Madison, WI 53703</p>
+      </ion-item>
+    
+      <ion-item>
+         
+        <span item-left>18 min</span>
+        <span item-left>(2.6 mi)</span>
+        <button ion-button icon-left clear item-end>
+          <ion-icon name="navigate"></ion-icon>
+          Start
+        </button>
+      </ion-item>
+    
+    </ion-card>
+</ion-content>
+
+
+<ion-menu [content]="content"  type="overlay">
+  <ion-header>
+    <ion-toolbar color="color1">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="ProfilePage()">
+        Profile
+      </button>
+      <button ion-item (click)="AboutPage()">
+        AboutUs
+      </button>
+      <button ion-item (click)="UsersPage()">
+        Events
+      </button>
+      <button ion-item (click)="closeMenu()">
+        Close Menu
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="HomePage"></ion-nav>

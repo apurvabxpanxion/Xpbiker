@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="loginPage">
+  <mbsc-form [options]="formSettings">
+    <form novalidate #templForm="ngForm">
+        <div class="mbsc-form-group">
+            <div class="mbsc-form-group-title">Enter your details..!!</div>
+           
+            <mbsc-input name="username" [(ngModel)]="loginData.username" #user="ngModel" [error]="user.invalid && templSubmitted" [errorMessage]="getErrorMessage('username', 'templ')" placeholder="Username" minlength="2" required icon="user4"></mbsc-input>
+            <mbsc-input name="password" [(ngModel)]="loginData.password" #pass="ngModel" type="password" placeholder="Password" minlength="6" required icon="lock2" password-toggle="true" [error]="pass.invalid && templSubmitted" [errorMessage]="getErrorMessage('password', 'templ')"></mbsc-input>
+        </div>
+        <div class="mbsc-form-group mbsc-btn-group-block">
+            <button ion-button icon="checkmark" (click)="home()" [disabled]="templForm.invalid && templSubmitted">Sign Up</button>
+        </div>
+    </form>
+</mbsc-form>
+    
+</ion-content>
